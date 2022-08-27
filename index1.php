@@ -1,11 +1,6 @@
-<?php
-date_default_timezone_set('Asia/Seoul');
+<?
 
-foreach ($_REQUEST as $key => $val) {
-	$$key=$val;
-}
-
-if($mb && $sb && $t1 && $t2 && $t3 && $t4 && $h1 && $f1 && $w1 && $w2 && $e1 && $p){
+if($mb && $sb && $t1 && $t2 && $t3 && $t4 && $h1 && $f1 && $w1 && $w2 && $e1){
 
    $mb = $mb - 1;
    $sb = $sb - 1;
@@ -21,10 +16,7 @@ if($mb && $sb && $t1 && $t2 && $t3 && $t4 && $h1 && $f1 && $w1 && $w2 && $e1 && 
                    
    $data=$mb+$sb+$t1+$t2+$t3+$t4+$h1+$f1+$w1+$w2+$e1;
    $data=$data%2;
-
    if($data!=$p){
-      echo "data :".$data."<br>";
-      echo "p :".$p."<br>";
       echo "err";
       $time_data=date("Ymd-His");
       $file_pointer = fopen("err.txt", "a");

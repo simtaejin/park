@@ -1,4 +1,4 @@
-<?
+<?php
 
 if($del_data){
    $file_pointer = fopen("data.txt", "w");
