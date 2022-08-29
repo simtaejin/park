@@ -3,8 +3,7 @@
 
 $ip = $_SERVER['REMOTE_ADDR'];
 $time1 = date("Y-m-d h:i:s",$_SERVER['REQUEST_TIME']);
-$time_board = date("h:i:s", $_SERVER['REQUEST_TIME']);
-$data_board = date("Y-m-d", $_SERVER['REQUEST_TIME']);
+
 $data = $_GET['S'];
 //$a = explode('-', $_GET['S']);
 //echo $_GET['S'];
@@ -47,19 +46,11 @@ mysqli_close($conn);
 */
 $conn = mysqli_connect("localhost","root","autoset","dudung") or die ("Can't access DB");
 $array_data = explode('-',$data);
-
-for ($i=0 ; $i<10; $i++)
-{
-	$array_data[i] = $array_data[i] - 1;
-}
 $num=1;
-//$query = "insert into BORAM () values('".$data."','".$time1."')"; ภ฿ตส
-$query = "insert into boram (`ID`, `BOARD_DATE`, `BOARD_TIME`, `BOARD_IP`, `MB`, `SB`, `T1`, `T2`, `T3`, `T4`, `H1`, `WATER`, `w1`, `w2`, `E1`) values('','".$data_board."','".$time_board."','".$ip."','".$array_data[0]."','".$array_data[1]."','".$array_data[2]."','".$array_data[3]."','".$array_data[4]."','".$array_data[5]."','".$array_data[6]."','".$array_data[7]."','".$array_data[8]."','".$array_data[9]."','".$array_data[10]."')";
-$resut=mysqli_query($conn,$query);
-mysqli_close($conn);
-//INSERT INTO `dudung`.`boram` (`ID`, `BOARD_DATE`, `BOARD_TIME`, `BOARD_IP`, `MB`, `SB`, `T1`, `T2`, `T3`, `T4`, `H1`, `WATER`, `w1`, `w2`, `E1`) VALUES (NULL, '2022-08-29', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
+for (i=0; i<count($array_data)-1; $i++) {
+	
 
-//$conn = mysqli_connect("localhost","root","autoset","dudung") or die ("Can't access DB");
+$conn = mysqli_connect("localhost","root","autoset","dudung") or die ("Can't access DB");
 
 
 
