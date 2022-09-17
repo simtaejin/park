@@ -35,7 +35,7 @@ $data = $_GET['S'];
     	
 //	$data = $key+$val+"<>";
 	$text="$time1-$ip-$data\n";
-     $file_pointer = fopen("data.txt", "a");
+     $file_pointer = fopen("data_no.txt", "a");
       fwrite($file_pointer, $text);
 	  fclose($file_pointer);    
 //}
@@ -68,12 +68,20 @@ mysqli_close($conn);
       $con_file = file_get_contents('./control.txt', true);
 
       $con_file = explode("#",$con_file);
+
+      foreach ($con_file as $k => $v) {
+           $con_file[$k] = trim($v);
+      }
+
       $con_data=$con_file[0]+$con_file[1]+$con_file[2]+$con_file[3];
 
       $con_data=$con_data%2;
-      if($con_data) $con_data=1;
+      
+      if($con_data)
+      	$con_data=1;
       else if(!$con_data) $con_data=0;
-      $con_text="@$con_file[0]$con_file[1]$con_file[2]$con_file[3]$con_data";  
+      
+      $con_text = "@".$con_file['0'].$con_file['1'].$con_file['2'].$con_file['3'].$con_data; 
+      
       echo $con_text;
-
 ?>
