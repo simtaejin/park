@@ -1,4 +1,4 @@
 <?php
 ini_set( 'display_errors', '1' );
-$conn = mysqli_connect("localhost","root","UNpDc91Gz1hf","dudung") or die ("Can't access DB");
+$conn = mysqli_connect("shopmysql","root","password","dudung") or die ("Can't access DB");
 ?>
